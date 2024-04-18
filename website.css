@@ -1,0 +1,192 @@
+/* Common styles for all screen sizes */
+body {
+    display: grid;
+    place-items: start center; /* Center horizontally and keep at the top */
+    min-height: 100vh; /* Ensure the grid covers the entire viewport height */
+    margin: 0; /* Remove default body margin */
+    background-color: #f9f9f9; 
+    margin-top: 20px;
+    font-family: Arial, sans-serif; /* Font family for all body */
+}
+
+/* Header styles */
+h1 {
+    text-align: center;
+    margin-top: 20px; 
+    font-size: 24px; /* font size for desktop */
+}
+
+/* Image container styles */
+.image-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two columns: first image takes 2/3, second and third take 1/3 each */
+    grid-gap: 16px; /* Gap between images */
+    max-width: 800px; /* Limit the container width */
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Prevent stretching while maintaining aspect ratio */
+}
+
+/* Container and section styles */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.section {
+    text-align: center;
+    margin-right: 3px; /* Adjusted right margin */
+    margin-bottom: 5px; /* Adjusted bottom margin */
+    width: 130px; /* Adjusted width for smaller size */
+    border: 1px solid #ddd; /* Added border for visual separation */
+    border-radius: 8px; /* Added border-radius for rounded corners */
+    padding: 10px; /* Decreased padding for compactness */
+    background-color: #fff; /* Added background color for sections */
+}
+
+.section h2 {
+    margin-bottom: 5px; /* Minimized bottom margin */
+    font-size: 14px; 
+    line-height: 1.2; /* Added line-height for vertical stacking of titles */
+    color: #888; /* Set text color to gray */
+}
+
+.section img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 5px; 
+}
+
+.shop-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 6px 10px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 60%;
+    font-size: 12px; 
+}
+
+/* Carousel and product styles */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+.product-container {
+    display: flex; /* Display products in a row */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflowing products */
+    transition: margin 0.5s ease; /* Smooth transition */
+}
+
+.product {
+    width: 200px; /* width for desktop */
+    margin-right: 10px;
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+h2, .price {
+    font-weight: normal;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.price {
+    color: blue; 
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 1; /* Ensure buttons appear above products */
+}
+
+.prev-btn {
+    left: -5px; 
+}
+
+.next-btn {
+    right: -5px; 
+}
+
+/* Media queries for responsiveness */
+
+/* Adjustments for tablets */
+@media screen and (max-width: 768px) {
+    .product {
+        width: 150px; /* width for tablets */
+    }
+}
+
+/* Adjustments for mobile devices */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 20px; /* font size for mobile */
+    }
+
+    /* Image container */
+    .image-container {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
+
+    /* Tattoo section */
+    .section {
+        width: 100%; /* Full width for sections on mobile */
+        margin-right: 0; /* No right margin */
+        margin-bottom: 10px; /* Added bottom margin for spacing */
+    }
+
+    /* Shop button */
+    .shop-button {
+        width: 100%; /* Full width for buttons on mobile */
+    }
+
+    /* Carousel */
+    .carousel {
+        max-width: 100%; /* Full width for carousel on mobile */
+        overflow-x: hidden; /* Hide horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Enable snapping to each product */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+    }
+
+    .product-container {
+        display: grid; /* Display products in a grid layout */
+        grid-template-columns: 1fr; /* Single column for each product */
+        overflow: hidden; /* Hide overflowing products */
+        scroll-snap-type: x mandatory; /* Enable snapping to each product */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+    }
+
+    .product {
+        width: 100%; /* Each product takes full width */
+        margin-right: 0; /* No right margin */
+        scroll-snap-align: start; /* Snap each product to the start of the container */
+    }
+
+    /* Prev/Next buttons */
+    .prev-btn, .next-btn {
+        display: none; /* Hide prev/next buttons on mobile */
+    }
+}
